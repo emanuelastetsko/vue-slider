@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue Slider</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- FONTAWESOME -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    </head>
+    <body>
+
+        <div id="app">
+            <main>
+
+                <div class="main-container">
+                    
+                    
+                    <div class="big-slide">
+                        <div class="slide" v-for="(image, index) in images" :class="(activeSlide == index) ? 'active' : '' ">
+                            <img :src="image.image">
+                            <div class="text">
+                                <h3>{{ image.title }}</h3>
+                                <p>{{ image.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="preview-side">
+
+                        <!-- Mini slides a fianco -->
+                        <div class="mini-slide" v-for="(image, index) in images" :class="miniSlidesClass(index)">
+                            <img :src="image.image">
+                        </div>
+
+                        <span class="prew" @click="prewSlide()">
+                            <i class="fa-solid fa-chevron-up"></i>
+                        </span>
+                        <span class="next" @click="nextSlide()">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- VUE -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+        <!-- JAVASCRIPT -->
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </body>
+</html>
